@@ -1,454 +1,522 @@
-<html class="scroll-smooth" lang="id">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Kopi Senja - Penjualan Kopi
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <style>
-   body {
-      font-family: 'Poppins', sans-serif;
-    }
-  </style>
- </head>
- <body class="bg-gray-50 min-h-screen flex flex-col">
-  <div class="flex-grow flex flex-col" id="app">
-   <!-- Navigation / Dashboard Header -->
-   <nav class="bg-yellow-900 text-yellow-50 shadow-md sticky top-0 z-50" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-     <div class="flex items-center space-x-3">
-      <img alt="Logo Kopi Senja, a stylized coffee cup with steam in warm brown and yellow colors" class="rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/ba07c3fa-6dda-42bb-96f1-d55c034677cf.jpg" width="40"/>
-      <a class="text-xl font-semibold tracking-wide hover:text-yellow-300 transition" href="#" id="nav-brand">
-       Kopi Senja
-      </a>
-     </div>
-     <div class="hidden md:flex space-x-6 font-semibold text-yellow-100">
-      <a class="hover:text-yellow-300 transition" href="#beranda" id="nav-beranda">
-       Beranda
-      </a>
-      <a class="hover:text-yellow-300 transition" href="#menu" id="nav-menu">
-       Menu Kopi
-      </a>
-      <a class="hover:text-yellow-300 transition" href="#kontak" id="nav-kontak">
-       Kontak
-      </a>
-      <a class="hover:text-yellow-300 transition" href="#reservasi" id="nav-reservasi">
-       Reservasi
-      </a>
-      <button aria-label="Keranjang Belanja" class="relative hover:text-yellow-300 transition focus:outline-none" id="btn-cart">
-       <i class="fas fa-shopping-cart fa-lg">
-       </i>
-       <span class="absolute -top-2 -right-3 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center font-bold" id="cart-count">
-        0
-       </span>
-      </button>
-     </div>
-     <button aria-label="Toggle menu" class="md:hidden focus:outline-none text-yellow-100 hover:text-yellow-300" id="btn-menu-mobile">
-      <i class="fas fa-bars fa-lg">
-      </i>
-     </button>
-    </div>
-    <div class="md:hidden bg-yellow-800 text-yellow-100 px-4 py-3 space-y-3 hidden" id="mobile-menu">
-     <a class="block hover:text-yellow-300 font-semibold" href="#beranda">
-      Beranda
-     </a>
-     <a class="block hover:text-yellow-300 font-semibold" href="#menu">
-      Menu Kopi
-     </a>
-     <a class="block hover:text-yellow-300 font-semibold" href="#kontak">
-      Kontak
-     </a>
-     <a class="block hover:text-yellow-300 font-semibold" href="#reservasi">
-      Reservasi
-     </a>
-     <button aria-label="Keranjang Belanja" class="w-full text-left hover:text-yellow-300 font-semibold" id="btn-cart-mobile">
-      Keranjang
-     </button>
-    </div>
-   </nav>
-   <!-- Halaman Pertama: Selamat Datang -->
-   <section class="flex flex-col items-center justify-center text-center px-6 py-20 bg-gradient-to-b from-yellow-100 to-yellow-50" id="halaman-pertama">
-    <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-900 mb-6">
-     Selamat Datang di Kopi Senja
-    </h1>
-    <p class="max-w-xl text-yellow-800 mb-10 text-lg md:text-xl">
-     Nikmati kopi terbaik dengan suasana senja yang hangat dan menenangkan.
-    </p>
-    <button class="bg-yellow-900 hover:bg-yellow-800 text-yellow-50 font-semibold px-8 py-3 rounded-lg shadow-lg transition" id="btn-pesan-sekarang">
-     Pesan Sekarang
-    </button>
-    <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-5xl w-full">
-     <img alt="Gelas kopi dengan uap mengepul di atas meja kayu dengan latar belakang senja oranye dan coklat hangat" class="rounded-lg shadow-md object-cover w-full h-48" height="300" src="https://storage.googleapis.com/a1aa/image/f05b9e80-b161-450b-81ba-5e078f2a31a3.jpg" width="300"/>
-     <img alt="Cangkir kopi latte art dengan motif daun di atas meja kayu dengan latar belakang senja berwarna jingga" class="rounded-lg shadow-md object-cover w-full h-48" height="300" src="https://storage.googleapis.com/a1aa/image/8011bb4e-85c2-4dfc-6546-90c75341fdcf.jpg" width="300"/>
-     <img alt="Cangkir espresso kecil dengan kopi hitam pekat dan latar belakang senja berwarna merah keemasan" class="rounded-lg shadow-md object-cover w-full h-48" height="300" src="https://storage.googleapis.com/a1aa/image/539632aa-2d59-4123-ba4e-bdcd4c05a5bf.jpg" width="300"/>
-     <img alt="Botol cold brew kopi dengan es batu dan latar belakang senja berwarna ungu dan oranye" class="rounded-lg shadow-md object-cover w-full h-48" height="300" src="https://storage.googleapis.com/a1aa/image/352ba281-55cd-49f9-6318-1450c98b8568.jpg" width="300"/>
-     <img alt="Alat kopi drip dengan kopi menetes ke dalam gelas kaca dengan latar belakang senja berwarna kuning keemasan" class="rounded-lg shadow-md object-cover w-full h-48" height="300" src="https://storage.googleapis.com/a1aa/image/23963813-092d-400f-0b36-1f2bad678ca4.jpg" width="300"/>
-     <img alt="Tumpukan biji kopi segar berwarna coklat gelap dengan latar belakang senja berwarna oranye dan coklat" class="rounded-lg shadow-md object-cover w-full h-48" height="300" src="https://storage.googleapis.com/a1aa/image/114b0a0a-7546-4069-a903-549137575593.jpg" width="300"/>
-     <img alt="Interior kafe Kopi Senja dengan meja kayu, lampu gantung hangat, dan jendela besar yang menampilkan pemandangan senja" class="rounded-lg shadow-md object-cover w-full h-48" height="300" src="https://storage.googleapis.com/a1aa/image/db89a026-b1df-4751-e89b-cfb28676a264.jpg" width="300"/>
-     <img alt="Barista sedang menuang kopi dengan teknik latte art di kafe Kopi Senja dengan latar belakang senja" class="rounded-lg shadow-md object-cover w-full h-48" height="300" src="https://storage.googleapis.com/a1aa/image/5a223989-48da-47d2-8158-f7c1a2c259c2.jpg" width="300"/>
-    </div>
-   </section>
-   <!-- Halaman Dashboard & Konten -->
-   <main class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col space-y-10" id="dashboard">
-    <!-- Beranda Section -->
-    <section class="scroll-mt-20" id="beranda">
-     <h2 class="text-3xl font-bold text-yellow-900 mb-6">
-      Tentang Kopi Senja
-     </h2>
-     <div class="flex flex-col md:flex-row md:space-x-10 items-center">
-      <img alt="Cangkir kopi dengan latar belakang senja oranye dan coklat, menampilkan biji kopi dan alat seduh tradisional" class="rounded-lg shadow-lg w-full md:w-1/2 object-cover mb-6 md:mb-0" height="300" src="https://storage.googleapis.com/a1aa/image/21b0a928-c144-435f-3399-93e8fbf106e2.jpg" width="400"/>
-      <p class="text-yellow-800 text-lg md:text-xl leading-relaxed">
-       Kopi Senja adalah tempat terbaik untuk menikmati kopi berkualitas dengan suasana hangat dan nyaman. Kami mengutamakan biji kopi pilihan yang disangrai dengan sempurna untuk menghasilkan rasa yang kaya dan aroma yang menggoda. Datang dan rasakan kenikmatan kopi di setiap tegukan.
-      </p>
-     </div>
-    </section>
-    <!-- Menu Kopi Section -->
-    <section class="scroll-mt-20" id="menu">
-     <h2 class="text-3xl font-bold text-yellow-900 mb-6">
-      Menu Kopi
-     </h2>
-     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="menu-list">
-      <article class="bg-yellow-100 rounded-lg shadow-md overflow-hidden flex flex-col" data-id="1" data-name="Espresso" data-price="15000">
-       <img alt="Cangkir kecil berisi espresso hitam pekat dengan latar belakang kayu gelap" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/7e5b4903-d67b-4a28-7327-7acaed196e28.jpg" width="300"/>
-       <div class="p-4 flex flex-col flex-grow">
-        <h3 class="font-semibold text-yellow-900 text-lg mb-2">
-         Espresso
-        </h3>
-        <p class="text-yellow-800 font-semibold mb-4">
-         Rp 15.000
-        </p>
-        <button class="mt-auto bg-yellow-900 hover:bg-yellow-800 text-yellow-50 py-2 rounded-md font-semibold transition btn-add-cart">
-         Tambah ke Keranjang
-        </button>
-       </div>
-      </article>
-      <article class="bg-yellow-100 rounded-lg shadow-md overflow-hidden flex flex-col" data-id="2" data-name="Latte" data-price="20000">
-       <img alt="Cangkir kopi latte dengan busa berbentuk daun di atas meja kayu" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/77d3079d-de09-45ee-d965-0bcb85fd0a71.jpg" width="300"/>
-       <div class="p-4 flex flex-col flex-grow">
-        <h3 class="font-semibold text-yellow-900 text-lg mb-2">
-         Latte
-        </h3>
-        <p class="text-yellow-800 font-semibold mb-4">
-         Rp 20.000
-        </p>
-        <button class="mt-auto bg-yellow-900 hover:bg-yellow-800 text-yellow-50 py-2 rounded-md font-semibold transition btn-add-cart">
-         Tambah ke Keranjang
-        </button>
-       </div>
-      </article>
-      <article class="bg-yellow-100 rounded-lg shadow-md overflow-hidden flex flex-col" data-id="3" data-name="Cappuccino" data-price="22000">
-       <img alt="Cangkir cappuccino dengan busa tebal dan taburan coklat bubuk" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/2bb0762f-dd57-457b-fbb6-1cf0ce47e315.jpg" width="300"/>
-       <div class="p-4 flex flex-col flex-grow">
-        <h3 class="font-semibold text-yellow-900 text-lg mb-2">
-         Cappuccino
-        </h3>
-        <p class="text-yellow-800 font-semibold mb-4">
-         Rp 22.000
-        </p>
-        <button class="mt-auto bg-yellow-900 hover:bg-yellow-800 text-yellow-50 py-2 rounded-md font-semibold transition btn-add-cart">
-         Tambah ke Keranjang
-        </button>
-       </div>
-      </article>
-      <article class="bg-yellow-100 rounded-lg shadow-md overflow-hidden flex flex-col" data-id="4" data-name="Americano" data-price="18000">
-       <img alt="Cangkir kopi americano hitam dengan latar belakang meja kayu" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/97cafa92-2958-4efa-0efb-f5b3ff08cb24.jpg" width="300"/>
-       <div class="p-4 flex flex-col flex-grow">
-        <h3 class="font-semibold text-yellow-900 text-lg mb-2">
-         Americano
-        </h3>
-        <p class="text-yellow-800 font-semibold mb-4">
-         Rp 18.000
-        </p>
-        <button class="mt-auto bg-yellow-900 hover:bg-yellow-800 text-yellow-50 py-2 rounded-md font-semibold transition btn-add-cart">
-         Tambah ke Keranjang
-        </button>
-       </div>
-      </article>
-      <article class="bg-yellow-100 rounded-lg shadow-md overflow-hidden flex flex-col" data-id="5" data-name="Mocha" data-price="25000">
-       <img alt="Cangkir mocha dengan lapisan coklat dan busa di atasnya" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/b07a2239-6979-4745-ccbe-aea93c45328c.jpg" width="300"/>
-       <div class="p-4 flex flex-col flex-grow">
-        <h3 class="font-semibold text-yellow-900 text-lg mb-2">
-         Mocha
-        </h3>
-        <p class="text-yellow-800 font-semibold mb-4">
-         Rp 25.000
-        </p>
-        <button class="mt-auto bg-yellow-900 hover:bg-yellow-800 text-yellow-50 py-2 rounded-md font-semibold transition btn-add-cart">
-         Tambah ke Keranjang
-        </button>
-       </div>
-      </article>
-      <article class="bg-yellow-100 rounded-lg shadow-md overflow-hidden flex flex-col" data-id="6" data-name="Cold Brew" data-price="28000">
-       <img alt="Botol cold brew kopi dengan es batu dan latar belakang kayu" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/e7b24569-3c82-4273-0bd7-f7e65e1490e1.jpg" width="300"/>
-       <div class="p-4 flex flex-col flex-grow">
-        <h3 class="font-semibold text-yellow-900 text-lg mb-2">
-         Cold Brew
-        </h3>
-        <p class="text-yellow-800 font-semibold mb-4">
-         Rp 28.000
-        </p>
-        <button class="mt-auto bg-yellow-900 hover:bg-yellow-800 text-yellow-50 py-2 rounded-md font-semibold transition btn-add-cart">
-         Tambah ke Keranjang
-        </button>
-       </div>
-      </article>
-      <article class="bg-yellow-100 rounded-lg shadow-md overflow-hidden flex flex-col" data-id="7" data-name="Macchiato" data-price="23000">
-       <img alt="Cangkir macchiato dengan lapisan busa dan kopi pekat" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/5e5710c3-064d-4924-9a2c-e7420c0b63d0.jpg" width="300"/>
-       <div class="p-4 flex flex-col flex-grow">
-        <h3 class="font-semibold text-yellow-900 text-lg mb-2">
-         Macchiato
-        </h3>
-        <p class="text-yellow-800 font-semibold mb-4">
-         Rp 23.000
-        </p>
-        <button class="mt-auto bg-yellow-900 hover:bg-yellow-800 text-yellow-50 py-2 rounded-md font-semibold transition btn-add-cart">
-         Tambah ke Keranjang
-        </button>
-       </div>
-      </article>
-      <article class="bg-yellow-100 rounded-lg shadow-md overflow-hidden flex flex-col" data-id="8" data-name="Flat White" data-price="21000">
-       <img alt="Cangkir flat white dengan busa halus dan kopi di dalamnya" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/5e74f548-f9ad-42ba-4f36-f2ab07e2332b.jpg" width="300"/>
-       <div class="p-4 flex flex-col flex-grow">
-        <h3 class="font-semibold text-yellow-900 text-lg mb-2">
-         Flat White
-        </h3>
-        <p class="text-yellow-800 font-semibold mb-4">
-         Rp 21.000
-        </p>
-        <button class="mt-auto bg-yellow-900 hover:bg-yellow-800 text-yellow-50 py-2 rounded-md font-semibold transition btn-add-cart">
-         Tambah ke Keranjang
-        </button>
-       </div>
-      </article>
-      <article class="bg-yellow-100 rounded-lg shadow-md overflow-hidden flex flex-col" data-id="9" data-name="Affogato" data-price="27000">
-       <img alt="Gelato vanilla dengan espresso panas dituangkan di atasnya" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/fcf12681-ab5a-460c-44fb-14604d74e114.jpg" width="300"/>
-       <div class="p-4 flex flex-col flex-grow">
-        <h3 class="font-semibold text-yellow-900 text-lg mb-2">
-         Affogato
-        </h3>
-        <p class="text-yellow-800 font-semibold mb-4">
-         Rp 27.000
-        </p>
-        <button class="mt-auto bg-yellow-900 hover:bg-yellow-800 text-yellow-50 py-2 rounded-md font-semibold transition btn-add-cart">
-         Tambah ke Keranjang
-        </button>
-       </div>
-      </article>
-      <article class="bg-yellow-100 rounded-lg shadow-md overflow-hidden flex flex-col" data-id="10" data-name="Kopi Tubruk" data-price="12000">
-       <img alt="Cangkir kopi tubruk tradisional dengan kopi hitam pekat dan gula merah" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/8ddd6b8b-4940-4335-c789-97438fc3dcc5.jpg" width="300"/>
-       <div class="p-4 flex flex-col flex-grow">
-        <h3 class="font-semibold text-yellow-900 text-lg mb-2">
-         Kopi Tubruk
-        </h3>
-        <p class="text-yellow-800 font-semibold mb-4">
-         Rp 12.000
-        </p>
-        <button class="mt-auto bg-yellow-900 hover:bg-yellow-800 text-yellow-50 py-2 rounded-md font-semibold transition btn-add-cart">
-         Tambah ke Keranjang
-        </button>
-       </div>
-      </article>
-     </div>
-    </section>
-    <!-- Kontak Section -->
-    <section class="scroll-mt-20" id="kontak">
-     <h2 class="text-3xl font-bold text-yellow-900 mb-6">
-      Kontak Kami
-     </h2>
-     <div class="flex flex-col md:flex-row md:space-x-10">
-      <div class="md:w-1/2 space-y-4 text-yellow-800 text-lg">
-       <p>
-        <i class="fas fa-phone-alt mr-3 text-yellow-900">
-        </i>
-        <a class="hover:underline" href="tel:+6281234567890">
-         +62 812-3456-7890
-        </a>
-       </p>
-       <p>
-        <i class="fas fa-map-marker-alt mr-3 text-yellow-900">
-        </i>
-        Jl. Senja Indah No. 45, Kecamatan Senja, Kota Kopi, Jawa Barat 40123
-       </p>
-      </div>
-      <div class="md:w-1/2 mt-6 md:mt-0">
-       <iframe allowfullscreen="" class="rounded-lg shadow-md" height="300" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31655.123456789!2d107.618423!3d-6.917464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6f1a1a1a1a1%3A0x123456789abcdef!2sJl.%20Senja%20Indah%2045%2C%20Kecamatan%20Senja%2C%20Kota%20Kopi!5e0!3m2!1sid!2sid!4v1687000000000!5m2!1sid!2sid" style="border:0;" title="Peta Lokasi Kopi Senja" width="100%">
-       </iframe>
-      </div>
-     </div>
-    </section>
-    <!-- Reservasi Section -->
-    <section class="scroll-mt-20" id="reservasi">
-     <h2 class="text-3xl font-bold text-yellow-900 mb-6">
-      Reservasi Tempat
-     </h2>
-     <form autocomplete="off" class="bg-yellow-100 p-6 rounded-lg shadow-md max-w-lg" id="form-reservasi">
-      <div class="mb-4">
-       <label class="block text-yellow-900 font-semibold mb-2" for="nama-reservasi">
-        Nama Lengkap
-       </label>
-       <input class="w-full px-4 py-2 rounded-md border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-600" id="nama-reservasi" name="nama-reservasi" placeholder="Masukkan nama lengkap" required="" type="text"/>
-      </div>
-      <div class="mb-4">
-       <label class="block text-yellow-900 font-semibold mb-2" for="tanggal-reservasi">
-        Tanggal Reservasi
-       </label>
-       <input class="w-full px-4 py-2 rounded-md border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-600" id="tanggal-reservasi" name="tanggal-reservasi" required="" type="date"/>
-      </div>
-      <div class="mb-4">
-       <label class="block text-yellow-900 font-semibold mb-2" for="jumlah-orang">
-        Jumlah Orang
-       </label>
-       <input class="w-full px-4 py-2 rounded-md border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-600" id="jumlah-orang" max="20" min="1" name="jumlah-orang" placeholder="Masukkan jumlah orang" required="" type="number"/>
-      </div>
-      <button class="bg-yellow-900 hover:bg-yellow-800 text-yellow-50 font-semibold px-6 py-3 rounded-md transition w-full" type="submit">
-       Buat Reservasi
-      </button>
-     </form>
-    </section>
-   </main>
-   <!-- Keranjang & Pesan Sekarang Modal -->
-   <div aria-describedby="modal-desc" aria-labelledby="modal-title" aria-modal="true" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden" id="modal-pesan" role="dialog">
-    <div class="bg-yellow-50 rounded-lg shadow-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
-     <button aria-label="Tutup modal" class="absolute top-4 right-4 text-yellow-900 hover:text-yellow-700 focus:outline-none" id="modal-close">
-      <i class="fas fa-times fa-lg">
-      </i>
-     </button>
-     <h3 class="text-2xl font-bold text-yellow-900 mb-4 text-center" id="modal-title">
-      Pesan Sekarang - Kopi Senja
-     </h3>
-     <div id="modal-content">
-      <!-- Isi dinamis -->
-      <div class="text-center text-yellow-800 text-lg" id="cart-empty">
-       Keranjang Anda kosong.
-      </div>
-      <div class="space-y-4 hidden" id="cart-items">
-       <ul class="divide-y divide-yellow-300 max-h-64 overflow-y-auto" id="cart-list">
-        <!-- Item keranjang akan muncul di sini -->
-       </ul>
-       <p class="text-yellow-900 font-semibold text-right text-xl mt-4">
-        Total: Rp
-        <span id="cart-total">
-         0
-        </span>
-       </p>
-       <div class="mt-6">
-        <h4 class="text-yellow-900 font-semibold mb-2">
-         Pilih Metode Pesan
-        </h4>
-        <div class="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
-         <button class="flex-1 bg-yellow-900 hover:bg-yellow-800 text-yellow-50 font-semibold py-3 rounded-md transition" id="btn-metode-reservasi">
-          Pesan &amp; Reservasi Tempat
-         </button>
-         <button class="flex-1 bg-yellow-700 hover:bg-yellow-600 text-yellow-50 font-semibold py-3 rounded-md transition" id="btn-metode-antar">
-          Pesan &amp; Antar via Ekspedisi
-         </button>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TokoBangunanAPP - Material Bangunan Lengkap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        /* Animasi sederhana */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background-color: #3b82f6;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="bg-blue-800 text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center">
+                    <i class="fas fa-hammer text-white text-xl"></i>
+                </div>
+                <h1 class="text-xl font-bold">Maju Jaya</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-orange-300 transition">Beranda</a>
+                <a href="#products" class="hover:text-orange-300 transition">Produk</a>
+                <a href="#categories" class="hover:text-orange-300 transition">Kategori</a>
+                <a href="#testimoni" class="hover:text-orange-300 transition">Testimoni</a>
+                <a href="#contact" class="hover:text-orange-300 transition">Kontak</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </button>
+                <button class="md:hidden" id="menuButton">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
         </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-   <!-- Form Reservasi di Modal -->
-   <div aria-describedby="modal-reservasi-desc" aria-labelledby="modal-reservasi-title" aria-modal="true" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden" id="modal-reservasi" role="dialog">
-    <div class="bg-yellow-50 rounded-lg shadow-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
-     <button aria-label="Tutup modal reservasi" class="absolute top-4 right-4 text-yellow-900 hover:text-yellow-700 focus:outline-none" id="modal-reservasi-close">
-      <i class="fas fa-times fa-lg">
-      </i>
-     </button>
-     <h3 class="text-2xl font-bold text-yellow-900 mb-4 text-center" id="modal-reservasi-title">
-      Form Reservasi Tempat
-     </h3>
-     <form autocomplete="off" class="space-y-4" id="form-pesan-reservasi">
-      <div>
-       <label class="block text-yellow-900 font-semibold mb-1" for="nama-pelanggan">
-        Nama Lengkap
-       </label>
-       <input class="w-full px-4 py-2 rounded-md border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-600" id="nama-pelanggan" name="nama-pelanggan" placeholder="Masukkan nama lengkap" required="" type="text"/>
-      </div>
-      <div>
-       <label class="block text-yellow-900 font-semibold mb-1" for="tanggal-pesan">
-        Tanggal Reservasi
-       </label>
-       <input class="w-full px-4 py-2 rounded-md border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-600" id="tanggal-pesan" name="tanggal-pesan" required="" type="date"/>
-      </div>
-      <div>
-       <label class="block text-yellow-900 font-semibold mb-1" for="jumlah-orang-pesan">
-        Jumlah Orang
-       </label>
-       <input class="w-full px-4 py-2 rounded-md border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-600" id="jumlah-orang-pesan" max="20" min="1" name="jumlah-orang-pesan" placeholder="Masukkan jumlah orang" required="" type="number"/>
-      </div>
-      <button class="bg-yellow-900 hover:bg-yellow-800 text-yellow-50 font-semibold px-6 py-3 rounded-md transition w-full" type="submit">
-       Buat Reservasi &amp; Cetak Resi
-      </button>
-     </form>
-    </div>
-   </div>
-   <!-- Form Antar via Ekspedisi Modal -->
-   <div aria-describedby="modal-antar-desc" aria-labelledby="modal-antar-title" aria-modal="true" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden" id="modal-antar" role="dialog">
-    <div class="bg-yellow-50 rounded-lg shadow-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
-     <button aria-label="Tutup modal antar" class="absolute top-4 right-4 text-yellow-900 hover:text-yellow-700 focus:outline-none" id="modal-antar-close">
-      <i class="fas fa-times fa-lg">
-      </i>
-     </button>
-     <h3 class="text-2xl font-bold text-yellow-900 mb-4 text-center" id="modal-antar-title">
-      Form Pesan &amp; Antar via Ekspedisi
-     </h3>
-     <form autocomplete="off" class="space-y-4" id="form-pesan-antar">
-      <div>
-       <label class="block text-yellow-900 font-semibold mb-1" for="nama-pelanggan-antar">
-        Nama Lengkap
-       </label>
-       <input class="w-full px-4 py-2 rounded-md border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-600" id="nama-pelanggan-antar" name="nama-pelanggan-antar" placeholder="Masukkan nama lengkap" required="" type="text"/>
-      </div>
-      <div>
-       <label class="block text-yellow-900 font-semibold mb-1" for="alamat-pengiriman">
-        Alamat Pengiriman
-       </label>
-       <textarea class="w-full px-4 py-2 rounded-md border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-600 resize-none" id="alamat-pengiriman" name="alamat-pengiriman" placeholder="Masukkan alamat lengkap pengiriman" required="" rows="3"></textarea>
-      </div>
-      <div>
-       <label class="block text-yellow-900 font-semibold mb-1" for="nohp-pengiriman">
-        Nomor HP
-       </label>
-       <input class="w-full px-4 py-2 rounded-md border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-600" id="nohp-pengiriman" name="nohp-pengiriman" pattern="[0-9+ ]+" placeholder="Masukkan nomor HP" required="" type="tel"/>
-      </div>
-      <button class="bg-yellow-900 hover:bg-yellow-800 text-yellow-50 font-semibold px-6 py-3 rounded-md transition w-full" type="submit">
-       Pesan &amp; Antar &amp; Cetak Resi
-      </button>
-     </form>
-    </div>
-   </div>
-   <!-- Resi Modal -->
-   <div aria-describedby="modal-resi-desc" aria-labelledby="modal-resi-title" aria-modal="true" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden" id="modal-resi" role="dialog">
-    <div class="bg-yellow-50 rounded-lg shadow-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
-     <button aria-label="Tutup modal resi" class="absolute top-4 right-4 text-yellow-900 hover:text-yellow-700 focus:outline-none" id="modal-resi-close">
-      <i class="fas fa-times fa-lg">
-      </i>
-     </button>
-     <h3 class="text-2xl font-bold text-yellow-900 mb-4 text-center" id="modal-resi-title">
-      Resi Pesanan Kopi Senja
-     </h3>
-     <div class="text-yellow-900 text-lg space-y-3" id="resi-content">
-     </div>
-     <div class="mt-6 flex justify-center space-x-4">
-      <button class="bg-yellow-900 hover:bg-yellow-800 text-yellow-50 font-semibold px-6 py-3 rounded-md transition" id="btn-print-resi">
-       Cetak Resi (PDF)
-      </button>
-      <button class="bg-yellow-700 hover:bg-yellow-600 text-yellow-50 font-semibold px-6 py-3 rounded-md transition" id="btn-close-resi">
-       Tutup
-      </button>
-     </div>
-    </div>
-   </div>
-  </div>
-  <footer class="bg-yellow-900 text-yellow-50 text-center py-6 mt-auto">
-   © 2024 Kopi Senja. Semua hak cipta dilindungi.
-  </footer>
-  <script>
-  </script>
- </body>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-blue-700 px-4 py-3" id="mobileMenu">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="hover:text-orange-300 transition">Beranda</a>
+                <a href="#products" class="hover:text-orange-300 transition">Produk</a>
+                <a href="#categories" class="hover:text-orange-300 transition">Kategori</a>
+                <a href="#testimoni" class="hover:text-orange-300 transition">Testimoni</a>
+                <a href="#contact" class="hover:text-orange-300 transition">Kontak</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gray-100 overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+<img 
+  src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/173f4b7d-b5dc-43f4-be3a-f18edf39d521.png" 
+  alt="Pekerja konstruksi sedang membangun rumah dengan material bangunan berkualitas" 
+  class="w-full h-[80vh] object-cover" 
+  onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1920 1080&quot;><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;#3b82f6&quot;/></svg>'">
+        <div class="absolute top-0 left-0 w-full h-full flex items-center">
+            <div class="container mx-auto px-4 text-white z-10 fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Material Bangunan Terbaik untuk Proyek Anda</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-2xl">Solusi lengkap untuk segala kebutuhan konstruksi dengan kualitas terjamin dan harga kompetitif.</p>
+                <div class="flex space-x-4">
+                    <a href="#products" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition shadow-lg">Lihat Produk</a>
+                    <a href="#contact" class="bg-white hover:bg-gray-100 text-blue-800 px-6 py-3 rounded-lg font-medium transition shadow-lg">Hubungi Kami</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-800 mb-3">Produk Unggulan Kami</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Temukan produk-produk berkualitas tinggi yang menjadi favorit pelanggan kami</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 transition hover:border-orange-300">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/01998cad-0df0-4ed0-961b-f5c3e250236e.png" alt="Semen berkualitas tinggi dalam kantong 50kg dengan merek terkenal" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-orange-500 text-white text-xs px-2 py-1 rounded">Best Seller</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Semen Tipe I</h3>
+                        <div class="flex mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-500 text-sm ml-1">(4.5)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Semen Portland tipe I untuk konstruksi umum, 50kg/zak</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-blue-800">Rp 75.000</span>
+                            <button class="bg-blue-100 hover:bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm transition">
+                                <i class="fas fa-cart-plus"></i> Tambah
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 transition hover:border-orange-300">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7ca67792-6501-4b92-9f5a-3c581f79ed7a.png" alt="Bata merah dengan ukuran standar tersusun rapi siap digunakan" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Bata Merah</h3>
+                        <div class="flex mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-gray-500 text-sm ml-1">(4.0)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Bata merah press ukuran standar, per 1000 biji</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-blue-800">Rp 1.200.000</span>
+                            <button class="bg-blue-100 hover:bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm transition">
+                                <i class="fas fa-cart-plus"></i> Tambah
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 transition hover:border-orange-300">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e8c7faed-b2af-4aad-8d8b-d8a7d17ed019.png" alt="Cat tembok dengan berbagai pilihan warna dalam kaleng berukuran berbeda" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">Eco Friendly</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Cat Tembok</h3>
+                        <div class="flex mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-500 text-sm ml-1">(5.0)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Cat tembok waterproof, tahan jamur, pilihan warna lengkap</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-blue-800">Rp 185.000</span>
+                            <button class="bg-blue-100 hover:bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm transition">
+                                <i class="fas fa-cart-plus"></i> Tambah
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 transition hover:border-orange-300">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a521a75c-d3f2-44b8-8042-b15496722060.png" alt="Besi beton berbagai ukuran dengan tekstur permukaan yang kuat" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">Limited</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Besi Beton</h3>
+                        <div class="flex mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-500 text-sm ml-1">(4.5)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Besi beton polos, diameter 8mm, panjang 12 meter</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-blue-800">Rp 65.000</span>
+                            <button class="bg-blue-100 hover:bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm transition">
+                                <i class="fas fa-cart-plus"></i> Tambah
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block border-2 border-blue-800 text-blue-800 hover:bg-blue-800 hover:text-white px-6 py-2 rounded-full font-medium transition">Lihat Semua Produk</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-800 mb-3">Kategori Produk</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Temukan semua kebutuhan bangunan Anda dalam berbagai kategori produk kami</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <!-- Category 1 -->
+                <a href="#" class="category-card bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition group">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-200 transition">
+                        <i class="fas  fa-cart-plus text-blue-300 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Material Dasar</h3>
+                </a>
+                
+                <!-- Category 2 -->
+                <a href="#" class="category-card bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition group">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-orange-200 transition">
+                        <i class="fas fa-trowel text-orange-800 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Alat Tukang</h3>
+                </a>
+                
+                <!-- Category 3 -->
+                <a href="#" class="category-card bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition group">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-green-200 transition">
+                        <i class="fas fa-paint-roller text-green-800 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Cat & Finishing</h3>
+                </a>
+                
+                <!-- Category 4 -->
+                <a href="#" class="category-card bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition group">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-yellow-200 transition">
+                        <i class="fas fa-toilet text-yellow-800 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Sanitasi</h3>
+                </a>
+                
+                <!-- Category 5 -->
+                <a href="#" class="category-card bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition group">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-purple-200 transition">
+                        <i class="fas fa-lightbulb text-purple-800 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Listrik</h3>
+                </a>
+                
+                <!-- Category 6 -->
+                <a href="#" class="category-card bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition group">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-red-200 transition">
+                        <i class="fas fa-tools text-red-800 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Peralatan</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section id="testimoni" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-800 mb-3">Testimoni Pelanggan</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Apa kata mereka tentang produk dan layanan kami</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimoni 1 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/eae07ac1-c8b3-4baf-9557-49c266fe8997.png" alt="Foto pria paruh baya tersenyum mengenakan kacamata dan helm proyek" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Budi Santoso</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Material yang dijual sangat berkualitas dengan harga terjangkau. Proses pengiriman cepat dan penjual ramah. Toko ini menjadi langganan saya untuk proyek konstruksi."</p>
+                </div>
+                
+                <!-- Testimoni 2 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/00462b1b-b64a-491f-a491-3b81aec1fb73.png" alt="Foto wanita profesional memegang blueprint konstruksi dengan latar belakang gedung" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Dewi Lestari</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Saya sangat puas berbelanja di sini. Mereka memiliki stok lengkap dan memberikan saran yang profesional untuk kebutuhan renovasi rumah saya. Pelayanan sangat memuaskan!"</p>
+                </div>
+                
+                <!-- Testimoni 3 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a472f7e3-6b05-4a38-9468-ffdd6fb3ed76.png" alt="Kontraktor berpengalaman memakai seragam oranye sambil memegang palu" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Agus Setiawan</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Sebagai kontraktor, saya sering membeli material dalam jumlah besar di sini. Mereka selalu memberikan harga khusus dan garansi untuk produknya. Sangat recommended!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="py-16 bg-blue-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-3">Hubungi Kami</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+                <p class="mt-4 max-w-2xl mx-auto">Kami siap membantu Anda dengan segala kebutuhan material bangunan Anda</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Informasi Kontak</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-orange-500 p-2 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Alamat</h4>
+                                <p>Jl. Bangunan No. 123, Kel. Konstruksi, Kec. Pembangunan, Kota Bandung</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-orange-500 p-2 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Telepon</h4>
+                                <p>022-1234567</p>
+                                <p>081234567890 (WhatsApp)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-orange-500 p-2 rounded-full mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <p>info@tokomajujaya.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-orange-500 p-2 rounded-full mr-4">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Jam Operasional</h4>
+                                <p>Senin-Sabtu: 08.00-17.00 WIB</p>
+                                <p>Minggu: 09.00-15.00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-xl font-bold mb-4">Ikuti Kami</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-blue-700 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-blue-700 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-blue-700 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Kirim Pesan</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block mb-1">Nama Lengkap</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 rounded bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-white placeholder-blue-300" placeholder="Masukkan nama Anda">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 rounded bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-white placeholder-blue-300" placeholder="Masukkan email Anda">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block mb-1">Nomor Telepon</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 rounded bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-white placeholder-blue-300" placeholder="Masukkan nomor telepon">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block mb-1">Pesan</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 rounded bg-blue-700 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-white placeholder-blue-300" placeholder="Tulis pesan Anda"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded font-medium transition">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center">
+                        <i class="fas fa-hammer text-white"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">Toko Bangunan Maju Jaya</h3>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p>© 2023 Toko Bangunan Maju Jaya. All Rights Reserved.</p>
+                    <p class="text-blue-300 text-sm mt-1">Material Bangunan Berkualitas sejak 1995</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuButton').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Simple animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.fade-in:not(.animated)');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('animated');
+                }
+            });
+        };
+        
+        // Initial check
+        animateOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
 </html>
